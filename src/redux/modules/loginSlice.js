@@ -25,7 +25,7 @@ export const __postLogin = createAsyncThunk(
         });
 
       if (data.status === 200) {
-        if (data.data.nickname === null) {
+        if (data.data.nickname === null || data.data.nickname === undefined) {
           // 닉네임을 입력 못 받았다면 닉네임 입력페이지
           window.location.href = "/SignNick";
         } else {
