@@ -1,3 +1,38 @@
+홈화면
+![image](https://user-images.githubusercontent.com/120103909/216041994-914b5103-e859-416c-88c6-6dfaf9ddc26d.png)
+
+회원가입
+![image](https://user-images.githubusercontent.com/120103909/216042077-484530dc-265b-403b-a5ba-7fe46cdfc9ee.png)
+
+
+
+
+-에러슈팅
+좋아요가 눌렀을 때, 랜더링이 비동거치리가 안됨. 
+--> useEffect의 디펜던스 어레이를 잘못썻음. 서버에서 값이 들어오고 해당 값이 변경되었을 때, 한번 더 랜더링하도록 작업함.
+
+-로그인이 되지 않았을 때 회원가입과 홈화면 말고는 접근하지 못하게 하기
+LoginHeader라는 컴퍼넌트를 만들어서  
+로그인 해더를 만들어서 특정페이지에 로그인이 없으면  home으로 navigate시킴
+이때 checkLogin은 sessionstorage에 닉네임이 있는지를 통해서 확인함.
+useEffect(() => {
+    if (
+      checkLogin === null &&
+      locationNow.pathname !== "/" &&
+      locationNow.pathname !== "/SignUp"
+    ) {
+      alert("로그인 해주세요.");
+      goToHome();
+    }
+  }, [checkLogin, locationNow.pathname]);
+};
+
+리덕스 툴킷을 이용해서 스테이트를 이용한 리렌더링 구현
+
+ref를 인풋값으로 활용
+
+회원가입시 유효성 검사 및  버튼 disabled
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
