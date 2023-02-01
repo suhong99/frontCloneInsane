@@ -16,7 +16,7 @@ export const __postLogin = createAsyncThunk(
     // console.log(payload, " 썽크로 들어오나?");
     try {
       const data = await axios
-        .post("http://becool0514.shop/kakao/code", payload)
+        .post("https://becool0514.shop/kakao/code", payload)
         .then((res) => {
           // console.log(res.headers.authorization);
           sessionStorage.setItem("authorization", res.headers.authorization);
